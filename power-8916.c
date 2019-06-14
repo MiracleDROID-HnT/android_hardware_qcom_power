@@ -58,10 +58,6 @@ const char *scaling_min_freq[4] = {
     "/sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq"
 };
 
-static int saved_dcvs_cpu0_slack_max = -1;
-static int saved_dcvs_cpu0_slack_min = -1;
-static int saved_mpdecision_slack_max = -1;
-static int saved_mpdecision_slack_min = -1;
 static int slack_node_rw_failed = 0;
 
 /**
@@ -82,7 +78,7 @@ static bool is_target_8916(void)
     return is_8916;
 }
 
-int  power_hint_override(power_hint_t hint, void *data)
+int  power_hint_override(power_hint_t hint)
 {
 
     switch(hint) {
